@@ -20,7 +20,7 @@
 							@foreach ($seasons as $season)
 								<tr>
 									<td>{{$season->name}}</td>
-									<td>Smazat</td>
+									<td><a href="{{ action('SeasonController@edit_season', $season->id) }}">Upravit</a></td>
 								</tr>
 							@endforeach
 						</tbody>

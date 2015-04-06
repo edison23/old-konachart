@@ -22,6 +22,13 @@ class SeasonController extends Controller {
 		return view('admin.add-season');
 	}
 
+	// Add season
+	public function edit_season($id)
+	{
+		$season = Season::findOrFail($id);
+		return view('admin.edit-season')->with('season', $season);;
+	}
+
 	public function store()
 	{
 		// get form data
@@ -31,6 +38,16 @@ class SeasonController extends Controller {
 		// save them to DB
 		Season::create($input);
 		//redirect to main admin pg
+		return redirect(action('AdminController@index'));
+	}
+
+	// Update entry
+	public function update()
+	{
+		$model = Season::find(Input::get("id"));
+		// dd($model); 
+		$model->fill(Input::all()); 
+		$model->save(); // updateOrCreate ?
 		return redirect(action('AdminController@index'));
 	}
 

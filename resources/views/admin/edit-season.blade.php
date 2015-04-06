@@ -1,21 +1,11 @@
 @extends('app')
 
 @section('content')
-	{!! Form::open() !!}
+	<h1>Upravit sezónu</h1>
+	{!! Form::open(['url' => 'admin/edit-season']) !!}
 		<div class="form-group">
-		@foreach ($entries as $entry)
-			{!! Form::text('season_id', $entry->season_id) !!}
-			{!! Form::text('title', $entry->title) !!}
-			{!! Form::text('studio', $entry->studio) !!}
-			{!! Form::textarea('description', $entry->description) !!}
-			<hr>
-		@endforeach
-		</div>
-		<div class="form-group">
-			{!! Form::text('season_id') !!}
-			{!! Form::text('title') !!}
-			{!! Form::text('studio') !!}
-			{!! Form::textarea('description') !!}
+			{!! Form::text('id', $season->id) !!}
+			{!! Form::text('name', $season->name) !!}
 			<br>
 		</div>
 		<div class="form-group">
