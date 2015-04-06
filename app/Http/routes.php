@@ -20,6 +20,7 @@ Route::get('admin/list-season/{id}', 'SeasonController@list_season');
 
 Route::get('admin/add-animu/{id}', 'AnimuController@add_animu');
 Route::get('admin/edit-animu/{id}', 'AnimuController@edit_animu');
+Route::get('admin/delete-animu/{id}', 'AnimuController@delete');
 
 Route::post('admin/add-season', 'SeasonController@store');
 Route::post('admin/edit-season', 'SeasonController@update');

@@ -42,4 +42,13 @@ class AnimuController extends Controller {
 		$model->save(); // updateOrCreate ?
 		return redirect(action('SeasonController@list_season', $model->season_id));
 	}
+
+	public function delete($id)
+	{
+		$animu = Animu::findOrFail($id);
+		// $season_id = $animu->season_id;
+		$animu->delete();
+		// dd($animu->season_id);
+		return redirect(action('SeasonController@list_season', $animu->season_id));
+	}
 }

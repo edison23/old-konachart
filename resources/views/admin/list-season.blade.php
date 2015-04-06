@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-	<h1>Seznam anime pro sezonu</h1>
+	<h1>Seznam anime pro sezonu {{ $title }}</h1>
 
 	<div class="panel-body">
 
@@ -14,7 +14,7 @@
 				@foreach ($season as $animu)
 					<tr>
 						<td><a href="{{ action('AnimuController@edit_animu', $animu->id) }}">{{$animu->title}}</a></td>
-						<td>Smazat</td>
+						<td><a href="{{ action('AnimuController@delete', $animu->id) }}" onclick="if(!confirm('Opravdu smazat?')){return false;};">Smazat</a></td>
 					</tr>
 				@endforeach
 			</tbody>

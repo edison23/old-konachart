@@ -6,10 +6,10 @@
 		<div class="form-group">
 			
 			{!! Form::label('ID zaznamu') !!}
-			{!! Form::text('id', $animu->id) !!}
+			{!! Form::hidden('id', $animu->id) !!}
 
 			{!! Form::label('ID Sezony') !!}
-			{!! Form::text('season_id', $animu->season_id) !!}
+			{!! Form::hidden('season_id', $animu->season_id) !!}
 			
 			{!! Form::label('Titul') !!}
 			{!! Form::text('title', $animu->title) !!}
