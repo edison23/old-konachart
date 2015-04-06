@@ -5,20 +5,18 @@
 	{!! Form::open(['url' => action('AnimuController@update')]) !!}
 		<div class="form-group">
 			
-			{!! Form::label('ID zaznamu') !!}
 			{!! Form::hidden('id', $animu->id) !!}
 
-			{!! Form::label('ID Sezony') !!}
 			{!! Form::hidden('season_id', $animu->season_id) !!}
 			
 			{!! Form::label('Titul') !!}
-			{!! Form::text('title', $animu->title) !!}
+			{!! Form::text('title', $animu->title, ['class' => 'form-control']) !!}
 			
 			{!! Form::label('Studio') !!}
-			{!! Form::text('studio', $animu->studio) !!}
+			{!! Form::text('studio', $animu->studio, ['class' => 'form-control']) !!}
 			
 			{!! Form::label('Popis') !!}
-			{!! Form::textarea('description', $animu->description) !!}
+			{!! Form::textarea('description', $animu->description, ['class' => 'form-control']) !!}
 		</div>
 		<div class="form-group">
 			{!! Form::submit('Uložit', ['class' => 'btn btn-primary ']) !!}

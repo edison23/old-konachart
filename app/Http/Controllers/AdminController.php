@@ -22,7 +22,7 @@ class AdminController extends Controller {
 	public function index()
 	{
 		//get all seasons and return view
-		$seasons = Season::all();
+		$seasons = Season::latest()->get();
 		return view('admin.dashboard')->with('seasons', $seasons);
 	}
 
