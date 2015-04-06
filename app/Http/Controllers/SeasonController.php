@@ -3,6 +3,7 @@
 
 use App\Season;
 use Requests;
+use Redirect;
 use App\Http\Controllers\Controller;
 
 /**
@@ -51,11 +52,24 @@ class SeasonController extends Controller {
 		return redirect(action('AdminController@index'));
 	}
 
+	public function delete_season($id)
+	{
+		if(Animu::where('season_id', '=', $id) -> exists())
+		{
+			return Redirect::back()->with('error', 'Sezónu nelze smazat, protože není prázdná.');
+		}
+		else {
+			$season = Season::findOrFail($id);
+			$season->delete();
+			return Redirect::back()->with('success', 'Sezóna smazána.');
+		}
+	}
+
 	public function list_season($id)
 	{
 		$season_animus = Animu::where('season_id', '=', $id)->get();
 		$season_title = Season::findOrFail($id)->name;
-		
+
 		return view('admin.list-season')->with(
 			[
 				'season' => $season_animus, 

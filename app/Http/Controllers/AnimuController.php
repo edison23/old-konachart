@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Animu;
 use App\Season;
 use Input;
+use Redirect;
 
 class AnimuController extends Controller {
 
@@ -49,6 +50,7 @@ class AnimuController extends Controller {
 		// $season_id = $animu->season_id;
 		$animu->delete();
 		// dd($animu->season_id);
-		return redirect(action('SeasonController@list_season', $animu->season_id));
+		return Redirect::back()->with('success', 'Série smazána.');
+		// return redirect(action('SeasonController@list_season', $animu->season_id));
 	}
 }

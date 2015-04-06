@@ -16,6 +16,7 @@ Route::get('admin', 'AdminController@index');
 
 Route::get('admin/add-season', 'SeasonController@add_season');
 Route::get('admin/edit-season/{id}', 'SeasonController@edit_season');
+Route::get('admin/delete-season/{id}', 'SeasonController@delete_season');
 Route::get('admin/list-season/{id}', 'SeasonController@list_season');
 
 Route::get('admin/add-animu/{id}', 'AnimuController@add_animu');
