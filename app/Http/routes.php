@@ -18,13 +18,13 @@ Route::get('admin/add-season', 'SeasonController@add_season');
 Route::get('admin/edit-season/{id}', 'SeasonController@edit_season');
 Route::get('admin/list-season/{id}', 'SeasonController@list_season');
 
-Route::get('admin/add-animu', 'AnimuController@add_animu');
+Route::get('admin/add-animu/{id}', 'AnimuController@add_animu');
 Route::get('admin/edit-animu/{id}', 'AnimuController@edit_animu');
 
 Route::post('admin/add-season', 'SeasonController@store');
 Route::post('admin/edit-season', 'SeasonController@update');
 
-Route::post('admin/add-animu', 'AnimuController@store');
+Route::post('admin/add-animu/{id}', 'AnimuController@store');
 Route::post('admin', 'AnimuController@update');
 
 Route::controllers([

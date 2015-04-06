@@ -1,11 +1,10 @@
 @extends('app')
 
 @section('content')
-	<h1>Přidat animu</h1>
-	{!! Form::open(['url' => action('AnimuController@add_animu')]) !!}
+	<h1>Přidat animu do sezóny {{ $season->name }}</h1>
+	{!! Form::open(['url' => action('AnimuController@add_animu', $season->id)]) !!}
 		<div class="form-group">
-			{!! Form::label('ID Sezony') !!}
-			{!! Form::text('season_id') !!}
+			{!! Form::hidden('season_id', $season->id) !!}
 			
 			{!! Form::label('Titul') !!}
 			{!! Form::text('title') !!}

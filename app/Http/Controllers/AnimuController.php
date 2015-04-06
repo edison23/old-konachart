@@ -5,14 +5,16 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Animu;
+use App\Season;
 use Input;
 
 class AnimuController extends Controller {
 
 	// Add animu
-	public function add_animu()
+	public function add_animu($id)
 	{
-		return view('admin.add-animu');
+		$season = Season::findOrFail($id);
+		return view('admin.add-animu')->with('season', $season);
 	}
 
 	// Edit entry
@@ -23,15 +25,11 @@ class AnimuController extends Controller {
 	}
 
 	// Store new entry
-	public function store()
+	public function store($id)
 	{
-		// $input = Request::all();
-		// $animu = new Animu($input);
-		// $animu->save();
-
 		$input = Input::all();
 		Animu::create($input);
-		return redirect(action('AnimuController@add_animu'));
+		return redirect(action('AnimuController@add_animu', $id));
 	}
 
 	// Update entry
@@ -42,6 +40,6 @@ class AnimuController extends Controller {
 		$model = Animu::find(Input::get("id")); 
 		$model->fill(Input::all()); 
 		$model->save(); // updateOrCreate ?
-		return redirect(action('SeasonController@list_season'));
+		return redirect(action('SeasonController@list_season', $model->season_id));
 	}
 }

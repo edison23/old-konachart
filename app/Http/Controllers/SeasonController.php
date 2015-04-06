@@ -56,7 +56,12 @@ class SeasonController extends Controller {
 		$season_animus = Animu::where('season_id', '=', $id)->get();
 		// return $season_animus;
 		// dd($season_animus);
-		return view('admin.list-season')->with('season', $season_animus);
+		return view('admin.list-season')->with(
+			[
+				'season' => $season_animus, 
+				'id' => $id
+			]
+			);
 	}
 
 }
