@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
 	<h1>Upravit sezónu</h1>

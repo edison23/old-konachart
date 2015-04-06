@@ -23,7 +23,8 @@ class AnimuController extends Controller {
 	public function edit_animu($id)
 	{
 		$animu = Animu::findOrFail($id);
-		$links = Link::where('animu_id', '=', $id)->get();
+		$links = Link::where('animu_id', '=', $id)->get(); //this breakes when no links
+		// dd($links);
 		return view('admin.edit-animu')->with(
 			[
 				'animu' => $animu,

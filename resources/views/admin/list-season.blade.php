@@ -1,10 +1,10 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
 	<h1>Seznam anime pro sezonu {{ $title }}</h1>
 
 	<div class="panel-body">
-	
+
 		@if (Session::get('success'))
 			<div class="alert alert-success">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
