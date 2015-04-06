@@ -31,13 +31,17 @@ class AnimuController extends Controller {
 	{
 		$input = Input::all();
 		// dd($input['release_date']);
-		// Animu::create($input);
-		// $latest_id = Animu::latest('id')->first()->id;
-		// $latest_id = 33;
-		// $input += ['animu_id'=>intval($latest_id)];
-		// dd($input);
-		// Link::create($input);
-		Link::create(array('konata' => 'KON', 'ofic' => 32, 'animuId' => 132, 'anidb' => 'ANDB'));
+		// with(new Animu($input))->save();
+		$a = new Animu;
+		$a->fill($input);
+		$a->save();
+		
+		$latest_id = Animu::latest('id')->first()->id;
+		
+		$n = new Link();
+		$n->fill($input);
+		$n->animu_id = $latest_id;
+		$n->save();
 		return redirect(action('AnimuController@add_animu', $id));
 	}
 
