@@ -18,7 +18,7 @@
 			
 			{!! Form::label('Popis') !!}
 			{!! Form::textarea('description', $animu->description, ['class' => 'form-control']) !!}
-			
+
 			{!! Form::label('Link Konata') !!}
 			{!! Form::text('konata', $links->konata, ['class' => 'form-control']) !!}
 			
@@ -26,7 +26,7 @@
 			{!! Form::text('anidb', $links->anidb, ['class' => 'form-control']) !!}
 			
 			{!! Form::label('Link Oficial') !!}
-			{!! Form::text('oficial', $links->ofic, ['class' => 'form-control']) !!}
+			{!! Form::text('ofic', $links->ofic, ['class' => 'form-control']) !!}
 
 			{!! Form::label('Link Youtube') !!}
 			{!! Form::text('youtube', $links->youtube, ['class' => 'form-control']) !!}
