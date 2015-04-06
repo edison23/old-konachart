@@ -23,14 +23,18 @@ class AnimuController extends Controller {
 	public function edit_animu($id)
 	{
 		$animu = Animu::findOrFail($id);
-		return view('admin.edit-animu')->with('animu', $animu);
+		$links = Link::where('animu_id', '=', $id)->get();
+		return view('admin.edit-animu')->with(
+			[
+				'animu' => $animu,
+				'links' => $links[0]
+			]);
 	}
 
 	// Store new entry
 	public function store($id)
 	{
 		$input = Input::all();
-		// dd($input['release_date']);
 		// with(new Animu($input))->save();
 		$a = new Animu;
 		$a->fill($input);
@@ -50,10 +54,13 @@ class AnimuController extends Controller {
 	{
 		// $input = Request::all();
 		// dd(Input::get("id"));
-		$model = Animu::find(Input::get('id')); 
-		$model->fill(Input::all()); 
-		$model->save(); // updateOrCreate ?
-		return redirect(action('SeasonController@list_season', $model->season_id));
+		$a = Animu::findOrFail(Input::get('id')); 
+		$a->fill(Input::all()); 
+
+		$l = Link::where('animu_id', '=', Input::get('id'))->get()[0];
+		$l->fill(Input::all());
+		$l->save();
+		return redirect(action('SeasonController@list_season', $a->season_id));
 	}
 
 	public function delete($id)
