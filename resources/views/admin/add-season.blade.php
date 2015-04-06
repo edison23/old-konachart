@@ -3,7 +3,7 @@
 @section('content')
 	<h5>Přidat sezónu</h5>
 
-	{!! Form::open(['url' => action('SeasonController@add_season')]) !!}
+	{!! Form::open(['url' => 'admin/add-season']) !!}
 		<div class="form-group">
 			{!! Form::label('name', 'Název') !!}
 			{!! Form::text('name') !!}

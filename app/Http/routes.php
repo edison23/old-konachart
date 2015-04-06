@@ -13,13 +13,16 @@
 
 Route::get('/', 'PublicController@index');
 Route::get('admin', 'AdminController@index');
-Route::get('admin/add-season', 'SeasonController@add_season');
-Route::get('admin/add-animu', 'SeasonController@add_animu');
-Route::get('admin/edit-animu/{id}', 'SeasonController@edit_animu');
 
-Route::post('admin', 'AdminController@store');
-Route::post('admin/add-animu', 'SeasonController@store');
-Route::post('admin', 'SeasonController@update');
+Route::get('admin/add-season', 'SeasonController@add_season');
+
+Route::get('admin/add-animu', 'AnimuController@add_animu');
+Route::get('admin/edit-animu/{id}', 'AnimuController@edit_animu');
+Route::get('admin/list-season/{id}', 'SeasonController@list_season');
+
+Route::post('admin/add-season', 'SeasonController@store');
+Route::post('admin/add-animu', 'AnimuController@store');
+Route::post('admin', 'AnimuController@update');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

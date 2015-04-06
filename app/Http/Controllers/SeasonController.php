@@ -22,38 +22,24 @@ class SeasonController extends Controller {
 		return view('admin.add-season');
 	}
 
-	// Add animu
-	public function add_animu()
-	{
-		return view('admin.add-animu');
-	}
-
-	// Edit entry
-	public function edit_animu($id)
-	{
-		$animu = Animu::findOrFail($id);
-		return view('admin.edit-animu')->with('animu', $animu);
-	}
-
-	// Store new entry
 	public function store()
 	{
-		// $input = Request::all();
-		// $animu = new Animu($input);
-		// $animu->save();
-
+		// get form data
+		// return("penis");
 		$input = Request::all();
-		Animu::create($input);
-		return redirect(action('SeasonController@add_animu'));
+		
+		// save them to DB
+		Season::create($input);
+		//redirect to main admin pg
+		return redirect(action('AdminController@index'));
 	}
 
-	// Update entry
-	public function update()
+	public function list_season($id)
 	{
-		$input = Request::all();
-		// dd(Input::get("id"));
-		$animu = new Animu($input);
-		$animu->save();
+		$season_animus = Animu::where('season_id', '=', $id)->get();
+		// return $season_animus;
+		// dd($season_animus);
+		return view('admin.list-season')->with('season', $season_animus);
 	}
 
 }

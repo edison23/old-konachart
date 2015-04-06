@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Animu extends Model {
 
 		protected $fillable = [
+		'id',
 		'season_id',
 		'title',
 		'studio',

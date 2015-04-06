@@ -2,7 +2,7 @@
 
 @section('content')
 	<h1>Upravit animu</h1>
-	{!! Form::open(['url' => action('SeasonController@update')]) !!}
+	{!! Form::open(['url' => action('AnimuController@update')]) !!}
 		<div class="form-group">
 			
 			{!! Form::label('ID zaznamu') !!}

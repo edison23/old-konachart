@@ -2,7 +2,7 @@
 
 @section('content')
 	<h1>Přidat animu</h1>
-	{!! Form::open(['url' => action('SeasonController@add_animu')]) !!}
+	{!! Form::open(['url' => action('AnimuController@add_animu')]) !!}
 		<div class="form-group">
 			{!! Form::label('ID Sezony') !!}
 			{!! Form::text('season_id') !!}

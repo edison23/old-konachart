@@ -26,17 +26,7 @@ class AdminController extends Controller {
 		return view('admin.dashboard')->with('seasons', $seasons);
 	}
 
-	public function store()
-	{
-		// get form data
-		$input = Request::all();
-		
-		// save them to DB
-		Season::create($input);
 
-		//redirect to main admin pg
-		return redirect(action('AdminController@index'));
-	}
 
 
 	
