@@ -1,0 +1,25 @@
+.animu-single {
+	height: 270px;
+	position:relative;
+}
+
+.animu-desc {
+	padding: 4px;
+	height: 142px;
+	overflow: auto;
+}
+
+.animu-single img {
+	max-width: 100px;
+	float: left;
+	margin: 4px 0 0 4px;
+}
+
+.animu-footer {
+	background: #ddd;
+	border-top: 1px solid #ccc;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	height: 68px;
+}

@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use App\Season;
+use App\Animu;
+
 class PublicController extends Controller {
 
 	/**
@@ -14,7 +17,10 @@ class PublicController extends Controller {
 	 */
 	public function index()
 	{
-		return view('public');
+		$latest_season_id = Season::latest()->first()->id;
+		$latest_animu = Animu::where('season_id', '=', $latest_season_id)->get();
+		// dd($latest_animu);
+		return view('public.season')->with('animus', $latest_animu);
 	}
 
 }

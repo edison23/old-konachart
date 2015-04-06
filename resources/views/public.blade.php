@@ -7,6 +7,7 @@
 	<title>KonaChart Admin</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/konachart.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -43,7 +44,7 @@
 		</div>
 	</nav>
 	
-	<div class='wrapper' style="max-width: 50%; margin: 0 auto;">
+	<div class='wrapper container-fluid'>
 		@yield('content')
 	</div>
 
