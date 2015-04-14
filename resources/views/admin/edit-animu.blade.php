@@ -31,6 +31,8 @@
 			{!! Form::label('Link Youtube') !!}
 			{!! Form::text('youtube', $links->youtube, ['class' => 'form-control']) !!}
 
+			{!! Form::label('Datum vydání') !!}
+			{!! Form::input('date', $animu->release_date, null, ['class' => 'form-control']) !!}
 			
 		</div>
 		<div class="form-group">
