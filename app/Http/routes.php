@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'PublicController@index');
+Route::get('/season/{slug}', 'PublicController@season');
+
 Route::get('admin', 'AdminController@index');
 
 Route::get('admin/add-season', 'SeasonController@add_season');

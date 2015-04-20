@@ -5,6 +5,7 @@ use App\Season;
 use Requests;
 use Redirect;
 use App\Http\Controllers\Controller;
+use Str;
 
 /**
  * use Illuminate\Http\Request; 
@@ -30,15 +31,14 @@ class SeasonController extends Controller {
 		return view('admin.edit-season')->with('season', $season);;
 	}
 
+
 	public function store()
 	{
-		// get form data
-		// return("penis");
-		$input = Request::all();
-		
-		// save them to DB
-		Season::create($input);
-		//redirect to main admin pg
+		$input = Input::all();
+		$model = new Season;
+		$model->fill($input);
+		$model->slug = Str::slug($model->name);
+		$model->save();
 		return redirect(action('AdminController@index'));
 	}
 
@@ -46,8 +46,8 @@ class SeasonController extends Controller {
 	public function update()
 	{
 		$model = Season::find(Input::get("id"));
-		// dd($model); 
-		$model->fill(Input::all()); 
+		$model->fill(Input::all());
+		$model->slug = Str::slug($model->name);
 		$model->save(); // updateOrCreate ?
 		return redirect(action('AdminController@index'));
 	}

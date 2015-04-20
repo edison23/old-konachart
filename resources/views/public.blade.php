@@ -37,8 +37,13 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Léto 2015</a></li>
-					<li><a href="#">Jaro 2015</a></li>
+					<?= 
+						View::make('partials.animenu', [
+								'seasons' => $seasons
+							])
+					?>
+<!-- 					<li><a href="#">Léto 2015</a></li>
+					<li><a href="#">Jaro 2015</a></li> -->
 				</ul>
 			</div>
 		</div>

@@ -29,7 +29,6 @@
   							<th>Název</th><th>Akce</th>
 						</thead>
 						<tbody>
-							{{var_dump($seasons[1])}}
 							@foreach ($seasons as $season)
 								<tr>
 									<td><a href="{{ action('SeasonController@list_season', $season->id) }}">{{$season->name}}</a></td>

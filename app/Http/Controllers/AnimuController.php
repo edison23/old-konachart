@@ -24,11 +24,18 @@ class AnimuController extends Controller {
 	{
 		$animu = Animu::findOrFail($id);
 		$links = Link::where('animu_id', '=', $id)->get(); //this breakes when no links
+		if (isset($links[0])) {
+			$links = $links[0];
+			// dd('penis');
+		}
+		else {
+			//dunno what to actually do here
+		}
 		// dd($animu);
 		return view('admin.edit-animu')->with(
 			[
 				'animu' => $animu,
-				'links' => $links[0]
+				'links' => $links
 			]);
 	}
 
@@ -59,6 +66,13 @@ class AnimuController extends Controller {
 		$a->fill(Input::all()); 
 		$a->save();
 
+
+		if (Link::where('animu_id', '=', Input::get('id')[0])->get()) {
+			dd(Link::where('animu_id', '=', Input::get('id'))->get());
+		}
+		else {
+			dd('fail');
+		}
 		$l = Link::where('animu_id', '=', Input::get('id'))->get()[0];
 		$l->fill(Input::all());
 		$l->save();
